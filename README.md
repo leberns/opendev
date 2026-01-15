@@ -4,7 +4,7 @@
 
 ### 2026
 
-- [NeShop - Azure container apps demo application](https://github.com/leberns/spfx-tasks/wiki/Azure-DevOps-with-SharePoint)
+- [NeShop - Azure container apps demo application](https://github.com/leberns/neshop-aca)
 
   - **On Budget**: no expensive databases or resources are provisioned on Azure, good for students or individuals
   - **Deployment fully automated** with GitHub Actions: frontend, backend, database
@@ -14,7 +14,7 @@
   - Database migrations with **efbundle** from container app job
   - Backend: ASP.NET Core WebAPI
   - Frontend: Web/BlazorServer
-  - [Azure Container Apps](https://learn.microsoft.com/en-us/dotnet/core/containers/overview?tabs=linux) (= ACA)
+  - Azure Container Apps
   - Container registry: DockerHub
   - Images and test content created with AI
 
