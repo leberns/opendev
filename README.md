@@ -1,10 +1,8 @@
 # Open Dev
 
-## Publications
+## Projects
 
-### 2026
-
-- [NeShop - Azure container apps demo application](https://github.com/leberns/neshop-aca)
+- [NeShop ACA - Azure Container Apps eShop demo application](https://github.com/leberns/neshop-aca)
 
   - **On Budget**: no expensive databases or resources are provisioned on Azure, good for students or individuals
   - **Deployment fully automated** with GitHub Actions: frontend, backend, database
@@ -23,6 +21,12 @@
 
   GitHub Actions workflow deploying to Azure, an execution example:
   ![GitHub Actions workflow screen-shot](./docs/media/github-workflow-execution.png)
+
+## Publications
+
+### 2026
+
+- [NeShop ACA - demo application](https://github.com/leberns/neshop-aca)
 
 ### 2021
 
