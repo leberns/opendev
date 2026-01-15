@@ -2,6 +2,28 @@
 
 ## Publications
 
+### 2026
+
+- [NeShop - Azure container apps demo application](https://github.com/leberns/spfx-tasks/wiki/Azure-DevOps-with-SharePoint)
+
+  - **On Budget**: no expensive databases or resources are provisioned on Azure, good for students or individuals
+  - **Deployment fully automated** with GitHub Actions: frontend, backend, database
+  - Resources provisioned with **infrastructure as code**: **Bicep**
+  - **No passwords needed**: the application uses managed identities to access the database
+  - Database: **Azure Database for PostgreSQL flexible server**
+  - Database migrations with **efbundle** from container app job
+  - Backend: ASP.NET Core WebAPI
+  - Frontend: Web/BlazorServer
+  - [Azure Container Apps](https://learn.microsoft.com/en-us/dotnet/core/containers/overview?tabs=linux) (= ACA)
+  - Container registry: DockerHub
+  - Images and test content created with AI
+
+  Example of the application running on Azure:
+  ![Products screen-shot](./docs/media/neshop-aca-products.png)
+
+  GitHub Actions workflow deploying to Azure, an execution example:
+  ![GitHub Actions workflow screen-shot](./docs/media/github-workflow-execution.png)
+
 ### 2021
 
 - [Azure DevOps with SharePoint](https://github.com/leberns/spfx-tasks/wiki/Azure-DevOps-with-SharePoint)
