@@ -2,7 +2,7 @@
 
 ## Projects
 
-- [AgentsLab - Microsoft Agent Framework demos](https://github.com/leberns/opendev/AgentsLab)
+- [AgentsLab - Microsoft Agent Framework demos](https://github.com/leberns/opendev/tree/main/AgentsLab)
   - Ollama, a local LLM server
   - GitHub Copilot agents (optional for a few demos)
   - Azure CosmosDB (optional for a few demos)
