@@ -1,0 +1,12 @@
+@McpExpenseApi_HostAddress = https://localhost:7263
+
+POST {{McpExpenseApi_HostAddress}}/api/it-support/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "employeeId": 2322,
+  "description": "Install VPN Client on my laptop"
+}
+
+###

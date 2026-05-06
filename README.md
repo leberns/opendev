@@ -2,8 +2,18 @@
 
 ## Projects
 
-- [NeShop ACA - Azure Container Apps eShop demo application](https://github.com/leberns/neshop-aca)
+- [AgentsLab - Microsoft Agent Framework demos](https://github.com/leberns/opendev/AgentsLab)
+  - Ollama, a local LLM server
+  - GitHub Copilot agents (optional for a few demos)
+  - Azure CosmosDB (optional for a few demos)
+  - Streaming, reasoning, thinking, tools, and more
+  - Agent memory and AI context providers
+  - Multi-modal demo
+  - Multi-agents demo with workflows and orchestration
+  - MCP (Model Context Protocol)
+  - Aspire to coordinate the MCP servers and REST APIs
 
+- [NeShop ACA - Azure Container Apps eShop demo application](https://github.com/leberns/neshop-aca)
   - **On Budget**: no expensive databases or resources are provisioned on Azure, good for students or individuals
   - **Deployment fully automated** with GitHub Actions: frontend, backend, database
   - Resources provisioned with **infrastructure as code**: **Bicep**
@@ -25,6 +35,8 @@
 ## Publications
 
 ### 2026
+
+- [AgentsLab - Microsoft Agent Framework demos](https://github.com/leberns/opendev/AgentsLab)
 
 - [NeShop ACA - demo application](https://github.com/leberns/neshop-aca)
 

@@ -1,0 +1,11 @@
+using McpFinanceExpenseApi.Models.Enums;
+
+namespace McpFinanceExpenseApi.Models;
+
+public record GetExpenseResponseDto(
+    int EmployeeId,
+    string Description,
+    decimal Amount,
+    string Currency,
+    ExpenseStatusType Status
+    );

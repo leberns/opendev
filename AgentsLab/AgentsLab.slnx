@@ -1,0 +1,19 @@
+<Solution>
+  <Project Path="AgentsLab.AppConsole\AgentsLab.AppConsole.csproj" />
+  <Project Path="AgentsLab.AppHost/AgentsLab.AppHost.csproj" />
+  <Project Path="AgentsLab.ChatClientBuilders\AgentsLab.ChatClientBuilders.csproj" />
+  <Project Path="AgentsLab.Contracts\AgentsLab.Contracts.csproj" />
+  <Project Path="AgentsLab.Extensions\AgentsLab.Extensions.csproj" />
+  <Project Path="AgentsLab.ServiceDefaults/AgentsLab.ServiceDefaults.csproj" />
+  <Project Path="Lab.McpAgents\Lab.McpAgents.csproj" />
+  <Project Path="Lab.MultiModal\Lab.MultiModal.csproj" />
+  <Project Path="Lab.MultiTurnConversation\Lab.MultiTurnConversation.csproj" />
+  <Project Path="Lab.SentimentAnalyser\Lab.SentimentAnalyser.csproj" />
+  <Project Path="Lab.TokensStreamer\Lab.TokensStreamer.csproj" />
+  <Project Path="Lab.WorkflowAgents\Lab.WorkflowAgents.csproj" />
+  <Project Path="LabApi.FinanceExpenseApi\LabApi.FinanceExpenseApi.csproj" />
+  <Project Path="LabApi.FinanceTaxApi\LabApi.FinanceTaxApi.csproj" />
+  <Project Path="LabApi.ItSupportApi\LabApi.ItSupportApi.csproj" />
+  <Project Path="LabMcp.FinanceMcpServer\LabMcp.FinanceMcpServer.csproj" />
+  <Project Path="LabMcp.ItSupportMcpServer\LabMcp.ItSupportMcpServer.csproj" />
+</Solution>

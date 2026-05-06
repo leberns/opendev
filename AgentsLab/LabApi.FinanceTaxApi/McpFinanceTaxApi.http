@@ -1,0 +1,7 @@
+@McpExpenseApi_HostAddress = https://localhost:7262
+
+POST {{McpExpenseApi_HostAddress}}/api/tax-documents/2322/2018/2021
+Content-Type: application/json
+Accept: application/json
+
+###

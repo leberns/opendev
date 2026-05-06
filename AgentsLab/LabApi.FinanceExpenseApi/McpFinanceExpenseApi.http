@@ -1,0 +1,19 @@
+@McpExpenseApi_HostAddress = https://localhost:7261
+
+GET {{McpExpenseApi_HostAddress}}/api/expenses/2322
+Accept: application/json
+
+###
+
+POST {{McpExpenseApi_HostAddress}}/api/expenses/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "employeeId": 2322,
+  "description": "Train ticket",
+  "amount": "20",
+  "currency": "CHF"
+}
+
+###
