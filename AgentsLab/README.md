@@ -79,7 +79,7 @@ If you like to run the Labs that depend on Azure (like using the Azure CosmosBD)
 
 - [azd](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
 
-## Provisioning the Azure Infrastructure
+Provisioning the Azure Infrastructure:
 
 ```Sh
 # preview what to provision on Azure (check subscription, location and resource group)
@@ -102,7 +102,7 @@ cd AgentsLab/src
 azd down
 ```
 
-#### Update the Azure CosmosDb instance
+Update the Azure CosmosDb instance:
 
 Create the database: `agentsdb` and the container: `history`.
 
