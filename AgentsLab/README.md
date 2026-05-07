@@ -83,21 +83,21 @@ If you like to run the Labs that depend on Azure (like using the Azure CosmosBD)
 
 ```Sh
 # preview what to provision on Azure (check subscription, location and resource group)
-cd Dev/AgentsLab
+cd AgentsLab/src
 
 azd provision --preview
 ```
 
 ```Sh
 # provision the infrastructure on Azure
-cd Dev/AgentsLab
+cd AgentsLab/src
 
 azd provision
 ```
 
 ```Sh
 # remove from Azure once you are done
-cd Dev/AgentsLab
+cd AgentsLab/src
 
 azd down
 ```
@@ -113,7 +113,7 @@ Partition keys for the container: `/tenantId` -> `/userId` -> `/conversationId`
 ```Sh
 # clone the repo
 
-cd Dev/AgentsLab
+cd AgentsLab/src
 
 # run on each terminal or start both projects in an IDE
 
