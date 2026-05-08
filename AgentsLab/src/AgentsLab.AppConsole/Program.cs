@@ -53,12 +53,12 @@ services.AddTransient<IRunnableLab, TravelAdvisorAgent>();
 services.AddTransient<IRunnableLab, UserPreferencesAiContext>();
 services.AddTransient<IRunnableLab, ConversationCompaction>();
 services.AddTransient<IRunnableLab, GuardrailMiddlewareAgent>();
+services.AddTransient<IRunnableLab, AskForApprovalMiddleware>();
 services.AddTransient<IRunnableLab, WriterAgent>();
 services.AddTransient<IRunnableLab, WorkflowWritingAgency>();
 services.AddTransient<IRunnableLab, McpSubmitExpenseAgent>();
 services.AddTransient<IRunnableLab, McpServicesAgent>();
 services.AddTransient<IRunnableLab, McpServicesAgency>();
-services.AddTransient<IRunnableLab, McpAskApprovalHitlAgent>();
 
 var serviceProvider = services.BuildServiceProvider();
 

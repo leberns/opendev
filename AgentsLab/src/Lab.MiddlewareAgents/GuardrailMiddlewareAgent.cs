@@ -11,8 +11,6 @@ public class GuardrailMiddlewareAgent(
     ) : IRunnableLab
 {
     public List<TagType> GetTags() => [
-        TagType.Conversation,
-        TagType.ChatHistory,
         TagType.Middleware,
         TagType.Guardrail];
 
