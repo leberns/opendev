@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿﻿using System.ComponentModel;
 using Contracts;
 using Contracts.ChatClientBuilders;
 using Contracts.LabTags;
@@ -54,7 +54,8 @@ public class AskForApproval(
             {
                 Instructions = "You are a support agent. You might create support tickets if the user asks this. " +
                                "Use the tool SubmitSupportTicket to create a support ticket." +
-                                "Do not ask any extra information to the user, just create the ticket.",
+                               "Do not ask any extra information to the user, just create the ticket." +
+                               "If the user rejects the tool call, just say that and stop trying to execute the tool.",
                 Tools = [submitTicketWithApproval],
                 Temperature = 0.1f,
             }
