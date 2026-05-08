@@ -11,6 +11,7 @@
   <Project Path="Lab.MultiTurnConversation\Lab.MultiTurnConversation.csproj" />
   <Project Path="Lab.SentimentAnalyser\Lab.SentimentAnalyser.csproj" />
   <Project Path="Lab.TokensStreamer\Lab.TokensStreamer.csproj" />
+  <Project Path="Lab.ToolsAgents/Lab.ToolsAgents.csproj" />
   <Project Path="Lab.WorkflowAgents\Lab.WorkflowAgents.csproj" />
   <Project Path="LabApi.FinanceExpenseApi\LabApi.FinanceExpenseApi.csproj" />
   <Project Path="LabApi.FinanceTaxApi\LabApi.FinanceTaxApi.csproj" />

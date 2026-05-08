@@ -73,6 +73,12 @@ dotnet sln add Lab.MiddlewareAgents
 dotnet add package Microsoft.Extensions.AI --project Lab.MiddlewareAgents
 dotnet add package Microsoft.Agents.AI --project Lab.MiddlewareAgents
 
+dotnet new classlib -n Lab.ToolsAgents
+dotnet sln add Lab.ToolsAgents
+
+dotnet add package Microsoft.Extensions.AI --project Lab.ToolsAgents
+dotnet add package Microsoft.Agents.AI --project Lab.ToolsAgents
+
 dotnet new classlib -n McpAgents
 dotnet sln add McpAgents
 
@@ -100,7 +106,7 @@ dotnet sln add McpItSupportApi
 ```Sh
 # adding Aspire to the project so that all projects start at once
 
-dotnet new aspire-apphost -n AgentsLab.AppHost -o AgentsLab.AppHost 
+dotnet new aspire-apphost -n AgentsLab.AppHost -o AgentsLab.AppHost
 
 dotnet new aspire-servicedefaults -n AgentsLab.ServiceDefaults -o AgentsLab.ServiceDefaults
 
