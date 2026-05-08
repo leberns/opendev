@@ -25,19 +25,22 @@ Labs:                              Tags:
 3 - SentimentAnalyserChat          SentimentAnalyser, Chat
 4 - SentimentAnalyserAgent         SentimentAnalyser, DataExtraction
 5 - ImageDataExtractionAgent       MultiModal, Vision, DataExtraction
-6 - MeetingNoSession
+6 - MeetingNoSession               
 7 - MeetingHistoryInMemory         Conversation, ChatHistory
 8 - MeetingHistoryCosmosDb         Conversation, ChatHistory, Azure, CosmosDb
 9 - MeetingHistoryCosmosDbCont     Conversation, ChatHistory, Azure, CosmosDb
 10 - TravelAdvisorAgent            Conversation, ChatHistory, Tools
 11 - UserPreferencesAiContext      Conversation, ChatHistory, AiContextProvider, UserInteraction
 12 - ConversationCompaction        Conversation, ChatHistory, Azure, CosmosDb, Compaction
-13 - WriterAgent                   Tools
-14 - WorkflowWritingAgency         Tools, MultiAgent, Workflow
-15 - McpSubmitExpenseAgent         Conversation, ChatHistory, Tools, Mcp
-16 - McpServicesAgent              Conversation, ChatHistory, Tools, Mcp, UserInteraction
-17 - McpServicesAgency             Conversation, ChatHistory, Tools, Mcp, MultiAgent, UserInteraction
-Type a lab number or x to exit:
+13 - GuardrailMiddlewareAgent      DataExtraction, Middleware, Guardrail
+14 - WriterAgent                   Tools
+15 - WorkflowWritingAgency         Tools, MultiAgent, Workflow
+16 - AskForApproval                Tools, UserInteraction, HumanInTheLoop
+17 - McpSubmitExpenseAgent         Conversation, ChatHistory, Tools, Mcp
+18 - McpServicesAgent              Conversation, ChatHistory, Tools, Mcp, UserInteraction
+19 - McpServicesAgency             Conversation, ChatHistory, Tools, Mcp, MultiAgent, UserInteraction
+Type a lab number or x to exit: 
+
 ```
 
 The Aspire resources, example:

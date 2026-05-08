@@ -1,4 +1,4 @@
-﻿﻿using System.ComponentModel;
+﻿using System.ComponentModel;
 using Contracts;
 using Contracts.ChatClientBuilders;
 using Contracts.LabTags;
@@ -18,7 +18,8 @@ public class AskForApproval(
         TagType.HumanInTheLoop];
 
     public List<string> GetLabDescriptions() => [
-        "A tool is wrapped by another tool that asks for confirmation from the user before the agent can take an action."];
+        "A tool is wrapped by another tool that asks for confirmation from the user before it can be called.",
+        "In this way the user has to confirm before the agent can take an action."];
 
     public string GetUserInput() => "Create a support ticket to provision a VM.";
 
@@ -26,7 +27,7 @@ public class AskForApproval(
     {
         var chatClient = chatClientBuilder.BuildChatClient(ChatClientType.OllamaQwenVl4B);
 
-        // The tool is wrapped with approval logic, so the user must confirm before it executes
+        // the actual tool is wrapped with approval logic, so the user must confirm before it executes
         var submitTicketWithApproval = AIFunctionFactory.Create(
             ([Description("Description.")] string description) =>
             {
@@ -41,7 +42,7 @@ public class AskForApproval(
                     return AskForApprovalTool.SubmitSupportTicket(description);
                 }
 
-                Console.WriteLine("Tool call rejected by the user.");
+                Console.WriteLine("Tool call rejected by the user");
                 return "The user rejected the tool call.";
             },
             nameof(AskForApprovalTool.SubmitSupportTicket),

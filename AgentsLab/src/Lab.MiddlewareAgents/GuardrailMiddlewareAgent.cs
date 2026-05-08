@@ -11,12 +11,15 @@ public class GuardrailMiddlewareAgent(
     ) : IRunnableLab
 {
     public List<TagType> GetTags() => [
+        TagType.DataExtraction,
         TagType.Middleware,
         TagType.Guardrail];
 
     public List<string> GetLabDescriptions() => [
         "A guardrail middleware filters-out inappropriate content that the writer agent might produce.",
-        "The middleware uses an sensor agent to detect the inappropriate content, if any.",
+        "The middleware uses a sensor agent to detect the inappropriate content, if any.",
+        $"The sensor agent extracts the inappropriate words as finding into a {nameof(InappropriateFindings)} record,",
+        "so the detection of words is split from the action of redacting them.",
         "Note: the sensor agent could be replaced by some more deterministic logic,",
         "if the inappropriate content is well-known, ex:",
         "e-mails or telephone numbers, or other sensitive information."];
