@@ -17,7 +17,6 @@ public class McpServicesAgency(
         TagType.ChatHistory,
         TagType.Tools,
         TagType.Mcp,
-        TagType.RestApi,
         TagType.MultiAgent,
         TagType.UserInteraction];
 

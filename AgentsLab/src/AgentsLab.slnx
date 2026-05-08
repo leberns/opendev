@@ -6,6 +6,7 @@
   <Project Path="AgentsLab.Extensions\AgentsLab.Extensions.csproj" />
   <Project Path="AgentsLab.ServiceDefaults/AgentsLab.ServiceDefaults.csproj" />
   <Project Path="Lab.McpAgents\Lab.McpAgents.csproj" />
+  <Project Path="Lab.MiddlewareAgents/Lab.MiddlewareAgents.csproj" />
   <Project Path="Lab.MultiModal\Lab.MultiModal.csproj" />
   <Project Path="Lab.MultiTurnConversation\Lab.MultiTurnConversation.csproj" />
   <Project Path="Lab.SentimentAnalyser\Lab.SentimentAnalyser.csproj" />

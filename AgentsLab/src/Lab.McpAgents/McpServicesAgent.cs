@@ -17,7 +17,6 @@ public class McpServicesAgent(
         TagType.ChatHistory,
         TagType.Tools,
         TagType.Mcp,
-        TagType.RestApi,
         TagType.UserInteraction];
 
     public List<string> GetLabDescriptions() => [

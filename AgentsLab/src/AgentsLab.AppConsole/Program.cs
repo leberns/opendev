@@ -6,6 +6,7 @@ using Contracts.ChatClientBuilders;
 using Microsoft.Extensions.Configuration;
 using Contracts.Settings;
 using DataUnderstanding;
+using Lab.MiddlewareAgents;
 using McpAgents;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -51,11 +52,13 @@ services.AddTransient<IRunnableLab, MeetingHistoryCosmosDbCont>();
 services.AddTransient<IRunnableLab, TravelAdvisorAgent>();
 services.AddTransient<IRunnableLab, UserPreferencesAiContext>();
 services.AddTransient<IRunnableLab, ConversationCompaction>();
+services.AddTransient<IRunnableLab, GuardrailMiddlewareAgent>();
 services.AddTransient<IRunnableLab, WriterAgent>();
 services.AddTransient<IRunnableLab, WorkflowWritingAgency>();
 services.AddTransient<IRunnableLab, McpSubmitExpenseAgent>();
 services.AddTransient<IRunnableLab, McpServicesAgent>();
 services.AddTransient<IRunnableLab, McpServicesAgency>();
+services.AddTransient<IRunnableLab, McpAskApprovalHitlAgent>();
 
 var serviceProvider = services.BuildServiceProvider();
 

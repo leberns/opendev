@@ -1,11 +1,7 @@
 # Projects Creation
 
 ```Sh
-cd ~/Dev/GitHub/Leberns/labs/ai/
-
-mkdir AgentsLab
-
-cd ~/Dev/GitHub/Leberns/labs/ai/AgentsLab
+cd ~/Dev/GitHub/Leberns/opendev/AgentsLab/src
 
 dotnet new sln
 
@@ -70,6 +66,12 @@ dotnet sln add MultiModal
 
 dotnet add package Microsoft.Extensions.AI --project MultiModal
 dotnet add package Microsoft.Agents.AI --project MultiModal
+
+dotnet new classlib -n Lab.MiddlewareAgents
+dotnet sln add Lab.MiddlewareAgents
+
+dotnet add package Microsoft.Extensions.AI --project Lab.MiddlewareAgents
+dotnet add package Microsoft.Agents.AI --project Lab.MiddlewareAgents
 
 dotnet new classlib -n McpAgents
 dotnet sln add McpAgents

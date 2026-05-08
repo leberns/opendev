@@ -16,8 +16,7 @@ public class McpSubmitExpenseAgent(
         TagType.Conversation,
         TagType.ChatHistory,
         TagType.Tools,
-        TagType.Mcp,
-        TagType.RestApi];
+        TagType.Mcp];
 
     public List<string> GetLabDescriptions() => [
         "Demonstrate an agent calling a MCP service to create an expense.",

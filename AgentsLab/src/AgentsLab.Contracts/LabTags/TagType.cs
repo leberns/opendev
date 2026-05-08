@@ -101,7 +101,17 @@ public enum TagType
     AiContextProvider = 19,
 
     /// <summary>
-    /// The tools and or MCP servers are connected using REST APIs
+    /// HITL, human in the loop for approvals, etc
     /// </summary>
-    RestApi = 20,
+    HumanInTheLoop = 20,
+
+    /// <summary>
+    /// Agent framework with Middleware
+    /// </summary>
+    Middleware = 21,
+
+    /// <summary>
+    /// Guardrail: the input / output from the agent is verified if it is appropriate, according to some policy
+    /// </summary>
+    Guardrail = 22,
 }

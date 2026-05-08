@@ -23,6 +23,7 @@
     <ProjectReference Include="..\AgentsLab.ChatClientBuilders\AgentsLab.ChatClientBuilders.csproj" />
     <ProjectReference Include="..\AgentsLab.Contracts\AgentsLab.Contracts.csproj" />
     <ProjectReference Include="..\Lab.McpAgents\Lab.McpAgents.csproj" />
+    <ProjectReference Include="..\Lab.MiddlewareAgents\Lab.MiddlewareAgents.csproj" />
     <ProjectReference Include="..\Lab.MultiModal\Lab.MultiModal.csproj" />
     <ProjectReference Include="..\Lab.MultiTurnConversation\Lab.MultiTurnConversation.csproj" />
     <ProjectReference Include="..\Lab.SentimentAnalyser\Lab.SentimentAnalyser.csproj" />
