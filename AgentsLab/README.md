@@ -16,6 +16,64 @@ I'm experimenting with agents and AI with C#, check a few demos and ideas here.
 - MCP (Model Context Protocol)
 - Aspire to coordinate the MCP servers and REST APIs
 
+## Labs
+
+### Tokens & Streaming
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 1 | **TokensStreamerAgent** | Demonstrates response tokens, streaming and token usage. The instruction is to output the answer in capital case, just to demonstrate how it works. |
+| 2 | **ReasoningThinkingAgent** | Demonstrates reasoning to resolve a math problem. The thinking steps can be seen as they are streamed to the console. |
+
+### Sentiment Analysis
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 3 | **SentimentAnalyserChat** | Demonstrates sentiment analysis from text using a LLM without an agent. The sentiment data is outputted in the chat answer. Temperature is set low so the most probable tokens are favoured, resulting in a less varied answer. |
+| 4 | **SentimentAnalyserAgent** | Demonstrates the analysis and extraction of sentiment data from text using an agent. Temperature is set low for the same reason as above. |
+
+### Multi-Modal
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 5 | **ImageDataExtractionAgent** | Demonstrates an agent extracting visual information from an image — a form requesting an additional credit card (fields: card choice, name and address). Note: may take one or two minutes depending on hardware. |
+
+### Multi-Turn Conversations
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 6  | **MeetingNoSession** | Demonstrates an agent without chat history. Because there is no history, the agent cannot answer questions based on previous user inputs. |
+| 7  | **MeetingHistoryInMemory** | Demonstrates an agent with chat history stored in memory, enabling multi-turn conversations. History is not persisted between processes or requests. |
+| 8  | **MeetingHistoryCosmosDb** | Demonstrates an agent with chat history stored in Azure Cosmos DB. Requires the Azure Cosmos DB infrastructure (see prerequisites). |
+| 9  | **MeetingHistoryCosmosDbCont** | Demonstrates an agent continuing a conversation from a previous chat stored in Azure Cosmos DB. The conversation must have been started on the same day. Requires Azure Cosmos DB. |
+| 10 | **TravelAdvisorAgent** | Demonstrates a travel advisor agent with in-memory chat history. Because there is history, the agent can answer questions based on previous messages (e.g. resolving pronouns like "there" to a previously mentioned city). The agent can also call a tool for weather forecasts. |
+| 11 | **UserPreferencesAiContext** | Demonstrates an agent with chat history and a custom AI context provider that stores user preferences (location and language). The context provider injects these preferences into every agent invocation. |
+| 12 | **ConversationCompaction** | Demonstrates conversation compaction — an experimental feature useful for reducing token usage in long conversations. Requires Azure Cosmos DB. |
+
+### Middleware & Guardrails
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 13 | **GuardrailMiddlewareAgent** | Demonstrates a guardrail middleware that filters out inappropriate content produced by a writer agent. A sensor agent detects and extracts inappropriate words into a findings record, separating detection from redaction. The sensor can be replaced by deterministic logic for well-known patterns (e.g. emails, phone numbers, or other sensitive data). |
+
+### Tools & Workflows
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 14 | **WriterAgent** | Demonstrates an agent that creates a story and can use tools to format the output. |
+| 15 | **WorkflowWritingAgency** | Demonstrates a sequential agent workflow for story creation: a writer agent produces the story using formatting tools, and an editor agent reviews and makes changes. |
+| 16 | **AskForApproval** | Demonstrates human-in-the-loop control: a tool is wrapped by another tool that asks for user confirmation before it can be called, requiring the user to approve each agent action. |
+
+### MCP (Model Context Protocol)
+
+| # | Lab | Description |
+|---|-----|-------------|
+| 17 | **McpSubmitExpenseAgent** | Demonstrates an agent calling a MCP service to create an expense. Architecture: `SubmitExpenseAgent → FinanceMCPClient → FinanceMCPServer → FinanceExpenseAPI`. Requires the AgentsLab.AppHost to be running. |
+| 18 | **McpServicesAgent** | Demonstrates an agent that can perform several services by calling the appropriate MCP servers (Finance and IT Support). The input is intentionally incomplete, so the agent asks the user for more information. Requires the AgentsLab.AppHost to be running. |
+| 19 | **McpServicesAgency** | Demonstrates a multi-agent architecture where a plan agent decomposes user requests and routes them to specialised Finance and IT Support agents, each backed by its own MCP server. Requires the AgentsLab.AppHost to be running. |
+
+---
+
 Console menu, example:
 
 ```
