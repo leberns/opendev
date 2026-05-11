@@ -19,7 +19,7 @@ public class OllamaChatFactory(
             or ChatClientType.OllamaQwenVl4B
             or ChatClientType.OllamaQwenVl8B;
 
-    public IChatClient CreateChatClientAsync(ChatClientType chatClientType)
+    public IChatClient CreateChatClient(ChatClientType chatClientType)
     {
         var httpClient = new HttpClient
         {

@@ -14,5 +14,5 @@ public interface ILabChatFactory
     /// <summary>
     /// Instantiate a concrete chat client
     /// </summary>
-    IChatClient CreateChatClientAsync(ChatClientType chatClientType);
+    IChatClient CreateChatClient(ChatClientType chatClientType);
 }

@@ -12,7 +12,7 @@ public class AzureOpenAiChatFactory(
 {
     public bool CanCreate(ChatClientType chatClientType) => chatClientType == ChatClientType.AzureOpenAi;
 
-    public IChatClient CreateChatClientAsync(ChatClientType chatClientType)
+    public IChatClient CreateChatClient(ChatClientType chatClientType)
     {
         /*
          * - Deploy to Azure Foundry to have OpenAI and a deployment and update the environment variables. Ex.:

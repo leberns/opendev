@@ -11,7 +11,7 @@ public class ChatClientBuilder(
     {
         var chatClient = chatClientFactories
             .FirstOrDefault(factory => factory.CanCreate(chatClientType))?
-            .CreateChatClientAsync(chatClientType)
+            .CreateChatClient(chatClientType)
             ?? throw new ArgumentOutOfRangeException(
                 nameof(chatClientType),
                 chatClientType,

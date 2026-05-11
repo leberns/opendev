@@ -13,7 +13,7 @@ public class GitHubCopilotChatClientFactory(
 {
     public bool CanCreate(ChatClientType chatClientType) => chatClientType == ChatClientType.GitHubCopilot;
 
-    public IChatClient CreateChatClientAsync(ChatClientType chatClientType)
+    public IChatClient CreateChatClient(ChatClientType chatClientType)
     {
         if (Environment.GetEnvironmentVariable("GITHUB_TOKEN") is null)
         {
