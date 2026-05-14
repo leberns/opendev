@@ -24,7 +24,7 @@ public class OllamaChatFactory(
         var httpClient = new HttpClient
         {
             BaseAddress = new Uri(aiSettings.OllamaEndpoint),
-            Timeout = TimeSpan.FromMinutes(5)
+            Timeout = TimeSpan.FromMinutes(15)
         };
 
         var model = chatClientType.ChatClientTypeToModel();
