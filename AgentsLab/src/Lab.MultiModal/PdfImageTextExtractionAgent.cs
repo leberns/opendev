@@ -19,7 +19,6 @@ public class PdfImageTextExtractionAgent(
 {
     private const string BasePath = "Data/";
     private const string PdfPath = BasePath + "document.pdf"; // source pdf file
-    private const string OutputPath = BasePath + "document.txt"; // resulting extracted text output
 
     public List<TagType> GetTags() => [TagType.MultiModal, TagType.Vision, TagType.Ocr];
 
@@ -27,7 +26,7 @@ public class PdfImageTextExtractionAgent(
         "Demonstrate an agent extracting text from images embedded in a PDF file.",
         "The PDF file can contain several pages, each page is rasterized to PNG",
         "and sent to the vision model for OCR.",
-        $"The whole extracted text is saved to {OutputPath}.",
+        $"Each extracted page is saved in a separated file under the path {BasePath}.",
     ];
 
     public string GetUserInput() => "Read all the text from this document page exactly as it appears.";
@@ -47,7 +46,6 @@ public class PdfImageTextExtractionAgent(
 
         var agent = new ChatClientAgent(chatClient, agentOptions);
 
-        var allText = new System.Text.StringBuilder();
         var totalTime = TimeSpan.Zero;
 
         using var docReader = DocLib.Instance.GetDocReader(PdfPath, new PageDimensions(1500, 2000));
@@ -58,6 +56,7 @@ public class PdfImageTextExtractionAgent(
         for (var i = 0; i < pageCount; i++)
         {
             var pngPath = $"{BasePath}document-p{i + 1:D2}.png";
+            var outputPath = $"{BasePath}document-p{i + 1:D2}.txt";
 
             var pngBytes = RenderPage(docReader, i);
 
@@ -86,20 +85,12 @@ public class PdfImageTextExtractionAgent(
 
             response.LogResponseUsage();
 
-            Console.WriteLine($"Page {i + 1} OCR took {elapsedTime.TotalSeconds} s");
+            Console.WriteLine($"Page {i + 1} OCR took {elapsedTime.TotalSeconds} seconds");
 
-            if (i > 0)
-            {
-                allText.AppendLine();
-            }
+            await File.WriteAllTextAsync(outputPath, response.Text);
 
-            allText.AppendLine($"--- Page {i + 1} ---");
-            allText.AppendLine(response.Text);
+            Console.WriteLine($"Extracted page saved to {outputPath}");
         }
-
-        await File.WriteAllTextAsync(OutputPath, allText.ToString());
-
-        Console.WriteLine($"Extracted text written to {Path.GetFullPath(OutputPath)}");
 
         Console.WriteLine($"The OCR took in total {totalTime.TotalSeconds} s");
 

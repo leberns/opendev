@@ -102,8 +102,9 @@ public class AgentsRunner(
 
             Console.WriteLine(string.IsNullOrEmpty(result) ? string.Empty : $"Result: {result}");
         }
-        catch (OperationCanceledException)
+        catch (OperationCanceledException exc)
         {
+            Console.WriteLine($"The operation was cancelled whilst running the lab {labName}: {exc.Message}");
             return true;
         }
         catch (Exception ex)
