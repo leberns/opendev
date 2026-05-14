@@ -17,16 +17,16 @@ public class PdfImageTextExtractionAgent(
     ) : IRunnableLab
 {
     private const string BasePath = "Data/";
-    private const string PdfPath = BasePath + "document.pdf";
-    private const string PngPath = BasePath + "document.png";
-    private const string OutputPath = BasePath + "document.txt";
+    private const string PdfPath = BasePath + "document.pdf"; // source pdf file
+    private const string PngPath = BasePath + "document.png"; // rendered pdf page as png
+    private const string OutputPath = BasePath + "document.txt"; // extracted text output
 
     public List<TagType> GetTags() => [TagType.MultiModal, TagType.Vision, TagType.DataExtraction];
 
     public List<string> GetLabDescriptions() => [
         "Demonstrate an agent extracting text from images embedded in a PDF file.",
         "The PDF page is rasterized to PNG and sent to a vision model for OCR.",
-        "The extracted text is saved to data/contract-p02.txt.",
+        "The extracted text is saved to data/document.txt.",
     ];
 
     public string GetUserInput() => "Read all the text from this document page exactly as it appears.";
