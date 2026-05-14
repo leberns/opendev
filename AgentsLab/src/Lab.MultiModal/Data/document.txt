@@ -1,4 +1,5 @@
-Image of text in embedded in this document:
+--- Page 1 ---
+The following are images of texts embedded in this document.
 
 Additional card application
 
@@ -15,5 +16,15 @@ annual fee of 25 CHF/year becomes due
 CUSTOMER DETAILS
 
 Name: John Blue
-
 Address: Bahnhofstrasse 23, 8001, Zürich, Schweiz
+
+--- Page 2 ---
+1. Gebrauchszweck
+
+Verwendungszweck: Wohnung
+Jede Änderung des vertraglich vereinbarten Gebrauchs und jeder Unterbruch in der Benützung zum
+vertraglich vereinbarten Gebrauch ist nur mit einer vorgängig einzuholenden schriftlichen Zustimmung des
+Vermieters zulässig. Der Vermieter ist frei, diese Zustimmung zu erteilen oder zu verweigern.
+Maximale Anzahl Personen: 2
+Folgende Nebenräume stehen dem Mieter zur Alleinbenützung zur Verfügung: Keller
+Folgende gemeinschaftliche Räume und Anlagen können mitbenutzt werden: Waschküche

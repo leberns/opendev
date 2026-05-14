@@ -114,4 +114,9 @@ public enum TagType
     /// Guardrail: the input / output from the agent is verified if it is appropriate, according to some policy
     /// </summary>
     Guardrail = 22,
+
+    /// <summary>
+    /// Optical Character Recognition (OCR)
+    /// </summary>
+    Ocr = 23,
 }

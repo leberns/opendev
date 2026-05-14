@@ -9,6 +9,7 @@ using SkiaSharp;
 using Contracts;
 using Contracts.ChatClientBuilders;
 using Contracts.LabTags;
+using Docnet.Core.Readers;
 
 namespace DataUnderstanding;
 
@@ -18,15 +19,15 @@ public class PdfImageTextExtractionAgent(
 {
     private const string BasePath = "Data/";
     private const string PdfPath = BasePath + "document.pdf"; // source pdf file
-    private const string PngPath = BasePath + "document.png"; // rendered pdf page as png
-    private const string OutputPath = BasePath + "document.txt"; // extracted text output
+    private const string OutputPath = BasePath + "document.txt"; // resulting extracted text output
 
-    public List<TagType> GetTags() => [TagType.MultiModal, TagType.Vision, TagType.DataExtraction];
+    public List<TagType> GetTags() => [TagType.MultiModal, TagType.Vision, TagType.Ocr];
 
     public List<string> GetLabDescriptions() => [
         "Demonstrate an agent extracting text from images embedded in a PDF file.",
-        "The PDF page is rasterized to PNG and sent to a vision model for OCR.",
-        "The extracted text is saved to data/document.txt.",
+        "The PDF file can contain several pages, each page is rasterized to PNG",
+        "and sent to the vision model for OCR.",
+        $"The whole extracted text is saved to {OutputPath}.",
     ];
 
     public string GetUserInput() => "Read all the text from this document page exactly as it appears.";
@@ -46,45 +47,67 @@ public class PdfImageTextExtractionAgent(
 
         var agent = new ChatClientAgent(chatClient, agentOptions);
 
-        var pngBytes = RenderPdfPageToPng(PdfPath, pageIndex: 0);
+        var allText = new System.Text.StringBuilder();
+        var totalTime = TimeSpan.Zero;
 
-        await File.WriteAllBytesAsync(PngPath, pngBytes);
+        using var docReader = DocLib.Instance.GetDocReader(PdfPath, new PageDimensions(1500, 2000));
+        var pageCount = docReader.GetPageCount();
 
-        Console.WriteLine($"Rendered PNG size: {pngBytes.Length} bytes, saved to {Path.GetFullPath(PngPath)}");
+        Console.WriteLine($"The PDF document has {pageCount} page(s)");
 
-        var rom = new ReadOnlyMemory<byte>(pngBytes);
+        for (var i = 0; i < pageCount; i++)
+        {
+            var pngPath = $"{BasePath}document-p{i + 1:D2}.png";
 
-        List<AIContent> contents = [
-            new TextContent(userInput),
-            new DataContent(rom, "image/png")
-        ];
+            var pngBytes = RenderPage(docReader, i);
 
-        List<ChatMessage> messages = [
-            new(ChatRole.User, contents)
-        ];
+            await File.WriteAllBytesAsync(pngPath, pngBytes);
 
-        long startTime = Stopwatch.GetTimestamp();
+            Console.WriteLine($"Page {i + 1}: PNG {pngBytes.Length} bytes saved to {Path.GetFullPath(pngPath)}");
 
-        var response = await agent.RunAsync(messages);
+            var rom = new ReadOnlyMemory<byte>(pngBytes);
 
-        var elapsedTime = Stopwatch.GetElapsedTime(startTime);
+            List<AIContent> contents = [
+                new TextContent(userInput),
+                new DataContent(rom, "image/png")
+            ];
 
-        response.LogResponseAndUsage();
+            List<ChatMessage> messages = [
+                new(ChatRole.User, contents)
+            ];
 
-        Console.WriteLine($"The image processing took {elapsedTime.TotalSeconds} s");
+            var startTime = Stopwatch.GetTimestamp();
 
-        var extractedText = response.Text;
+            var response = await agent.RunAsync(messages);
 
-        await File.WriteAllTextAsync(OutputPath, extractedText);
+            var elapsedTime = Stopwatch.GetElapsedTime(startTime);
 
-        Console.WriteLine($"Extracted text written to {OutputPath}");
+            totalTime += elapsedTime;
 
-        return extractedText;
+            response.LogResponseUsage();
+
+            Console.WriteLine($"Page {i + 1} OCR took {elapsedTime.TotalSeconds} s");
+
+            if (i > 0)
+            {
+                allText.AppendLine();
+            }
+
+            allText.AppendLine($"--- Page {i + 1} ---");
+            allText.AppendLine(response.Text);
+        }
+
+        await File.WriteAllTextAsync(OutputPath, allText.ToString());
+
+        Console.WriteLine($"Extracted text written to {Path.GetFullPath(OutputPath)}");
+
+        Console.WriteLine($"The OCR took in total {totalTime.TotalSeconds} s");
+
+        return null;
     }
 
-    private static byte[] RenderPdfPageToPng(string pdfPath, int pageIndex)
+    private static byte[] RenderPage(IDocReader docReader, int pageIndex)
     {
-        using var docReader = DocLib.Instance.GetDocReader(pdfPath, new PageDimensions(1500, 2000));
         using var pageReader = docReader.GetPageReader(pageIndex);
 
         var rawBytes = pageReader.GetImage();
