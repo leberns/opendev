@@ -1,0 +1,19 @@
+Image of text in embedded in this document:
+
+Additional card application
+
+Yes, I wish to order an additional card (tick where appropriate):
+
+[X] World Mastercard® Pink
+annual fee for free up until the date on which the next
+annual fee of 75 CHF/year becomes due
+
+[ ] World Mastercard Green
+annual fee for free up until the date on which the next
+annual fee of 25 CHF/year becomes due
+
+CUSTOMER DETAILS
+
+Name: John Blue
+
+Address: Bahnhofstrasse 23, 8001, Zürich, Schweiz

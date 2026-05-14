@@ -28,6 +28,8 @@
     <PackageVersion Include="ModelContextProtocol.Core" Version="1.2.0" />
     <PackageVersion Include="System.ComponentModel" Version="4.3.0" />
     <PackageVersion Include="System.ComponentModel.Primitives" Version="4.3.0" />
+    <PackageVersion Include="Docnet.Core" Version="2.6.0" />
+    <PackageVersion Include="SkiaSharp" Version="2.88.8" />
 
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.2.0" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="10.2.0" />

@@ -46,6 +46,7 @@ services.AddTransient<IRunnableLab, ReasoningThinkingAgent>();
 services.AddTransient<IRunnableLab, SentimentAnalyserChat>();
 services.AddTransient<IRunnableLab, SentimentAnalyserAgent>();
 services.AddTransient<IRunnableLab, ImageDataExtractionAgent>();
+services.AddTransient<IRunnableLab, PdfImageTextExtractionAgent>();
 services.AddTransient<IRunnableLab, MeetingNoSession>();
 services.AddTransient<IRunnableLab, MeetingHistoryInMemory>();
 services.AddTransient<IRunnableLab, MeetingHistoryCosmosDb>();
