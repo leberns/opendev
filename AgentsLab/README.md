@@ -34,10 +34,10 @@ I'm experimenting with agents and AI with C#, check a few demos and ideas here.
 
 ### Multi-Modal
 
-| #   | Lab                                                                                                                                     | Description                                                                                                                                                                           |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 5   | [ImageDataExtractionAgent](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiModal/ImageDataExtractionAgent.cs)       | Demonstrates an agent extracting information from an image of a form. The extracted information of the form fields are stored in a C# record object.                                  |
-| 6   | [PdfImageTextExtractionAgent](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiModal/PdfImageTextExtractionAgent.cs) | Shows the extraction of text a PDF file. The PDF file can contain several pages with text and/or images of text. Each page is rasterized to PNG and sent to the vision model for OCR. |
+| #   | Lab                                                                                                                                     | Description                                                                                                                                                                                |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 5   | [ImageDataExtractionAgent](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiModal/ImageDataExtractionAgent.cs)       | Demonstrates an agent extracting information from an image of a form. The extracted information of the form fields are stored in a C# record object.                                       |
+| 6   | [PdfImageTextExtractionAgent](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiModal/PdfImageTextExtractionAgent.cs) | Shows the extraction of text from a PDF file. The PDF file can contain several pages with text and/or images of text. Each page is rasterized to PNG and sent to the vision model for OCR. |
 
 ### Multi-Turn Conversations
 
@@ -49,7 +49,7 @@ I'm experimenting with agents and AI with C#, check a few demos and ideas here.
 | 10  | [MeetingHistoryCosmosDbCont](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiTurnConversation/MeetingHistoryCosmosDbCont.cs) | Demonstrates an agent continuing a conversation from a previous chat stored in a database. For this example, the conversation has to be started on the same day. Requires the Azure Cosmos DB infrastructure (see prerequisites).                                                 |
 | 11  | [TravelAdvisorAgent](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiTurnConversation/TravelAdvisorAgent.cs)                 | Demonstrates a travel advisor agent with in memory chat history. Because there is history, the agent can answer questions based on previous messages (e.g. resolving pronouns like "there" to a previously mentioned city). The agent can also call a tool for weather forecasts. |
 | 12  | [UserPreferencesAiContext](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiTurnConversation/UserPreferencesAiContext.cs)     | Demonstrates an agent with chat history and a custom AI context provider that stores user preferences (location and language). The context provider injects these preferences into every agent invocation.                                                                        |
-| 13  | [ConversationCompaction](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiTurnConversation/ConversationCompaction.cs)         | Demonstrates conversation compaction — an experimental feature useful for reducing token usage in long conversations. Requires Azure Cosmos DB.                                                                                                                                   |
+| 13  | [ConversationCompaction](https://github.com/leberns/opendev/blob/main/AgentsLab/src/Lab.MultiTurnConversation/ConversationCompaction.cs)         | Demonstrates conversation compaction — an experimental feature useful for reducing token usage in long conversations. Requires the Azure Cosmos DB infrastructure (see prerequisites).                                                                                            |
 
 ### Middleware & Guardrails
 
@@ -96,9 +96,11 @@ The Aspire resources, example:
 
 ### Prerequisites for GitHub Copilot (Optional)
 
-If you like to run the Labs that depend on GitHub Copilot agents.
+If you like to run the agents using GitHub Copilot:
 
-- set a GitHub Personal Access Token (PAT) with `models` scope: https://github.com/settings/tokens
+- make sure you have a [GitHub account](https://github.com/)
+
+- create a GitHub Personal Access Token (PAT) with `models` scope: https://github.com/settings/tokens
 
   Save the PAT in an environment variable (`~/.zprofile`):
 
@@ -106,9 +108,11 @@ If you like to run the Labs that depend on GitHub Copilot agents.
   export GITHUB_TOKEN="YOUR-GITHUB-PAT"
   ```
 
+- change the code to use chat clients with
+
 ### Prerequisites for Azure (Optional)
 
-If you like to run the Labs that depend on Azure (like using the Azure CosmosBD).
+If you like to run the Labs that depend on Azure (like the ones using the Azure CosmosBD database).
 
 - [Azure account](https://portal.azure.com/)
 
@@ -142,6 +146,20 @@ Update the Azure CosmosDb instance:
 Create the database: `agentsdb` and the container: `history`.
 
 Partition keys for the container: `/tenantId` -> `/userId` -> `/conversationId`
+
+Update AgentsLab source core:
+
+Update the configuration to the Azure CosmosDB in [appsettings.json](https://github.com/leberns/opendev/blob/main/AgentsLab/src/AgentsLab.AppConsole/appsettings.json): `AgentsDbAccountEndpoint`
+
+In the Labs you want, reference then the enum `ChatClientType.GitHubCopilot` in the calls to the method `IChatClient BuildChatClient(ChatClientType chatClientType)`, ex.:
+
+```CSharp
+    public async Task<string?> RunLabAsync(string userInput)
+    {
+        var chatClient = chatClientBuilder.BuildChatClient(ChatClientType.GitHubCopilot);
+        ...
+    }
+```
 
 ## Running the AgentsLab projects
 

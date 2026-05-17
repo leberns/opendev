@@ -27,6 +27,7 @@ public class PdfImageTextExtractionAgent(
         "The PDF file can contain several pages, each page is rasterized to PNG",
         "and sent to the vision model for OCR.",
         $"Each extracted page is saved in a separated file under the path {BasePath}.",
+        $"The OCR of A4 pages with texts in German take in average 4 to 6 minutes (benchmark on a Mac M3 with 36GB RAM).",
     ];
 
     public string GetUserInput() => "Read all the text from this document page exactly as it appears.";
