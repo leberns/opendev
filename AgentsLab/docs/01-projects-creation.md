@@ -85,6 +85,12 @@ dotnet sln add McpAgents
 dotnet add package Microsoft.Extensions.AI --project McpAgents
 dotnet add package Microsoft.Agents.AI --project McpAgents
 
+dotnet new classlib -n Lab.SkillsAgents
+dotnet sln add Lab.SkillsAgents
+
+dotnet add package Microsoft.Extensions.AI --project Lab.SkillsAgents
+dotnet add package Microsoft.Agents.AI --project Lab.SkillsAgents
+
 dotnet new mcpserver -n FinanceMCPServer
 dotnet sln add FinanceMCPServer
 # move the package references with version numbers from the .csproj file to Directory.Build.props

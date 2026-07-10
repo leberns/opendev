@@ -18,6 +18,7 @@ public static class ChatClientTypeToModelsMapping
             ChatClientType.OllamaQwenThinking4B => "qwen3.5:4b",
             ChatClientType.OllamaQwenVl4B => "qwen3-vl:4b",
             ChatClientType.OllamaQwenVl8B => "qwen3-vl:8b",
+            ChatClientType.OllamaQwenCoder30B => "qwen3-coder:30b",
             ChatClientType.AzureOpenAi => "gpt-4o-mini",
             ChatClientType.GitHubCopilot => "gpt-4o-mini",
             _ => throw new ArgumentOutOfRangeException(nameof(chatClientType), chatClientType, null)

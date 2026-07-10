@@ -119,4 +119,9 @@ public enum TagType
     /// Optical Character Recognition (OCR)
     /// </summary>
     Ocr = 23,
+
+    /// <summary>
+    /// Agent skills
+    /// </summary>
+    Skills = 24,
 }

@@ -10,6 +10,7 @@
   <Project Path="Lab.MultiModal\Lab.MultiModal.csproj" />
   <Project Path="Lab.MultiTurnConversation\Lab.MultiTurnConversation.csproj" />
   <Project Path="Lab.SentimentAnalyser\Lab.SentimentAnalyser.csproj" />
+  <Project Path="Lab.SkillsAgents/Lab.SkillsAgents.csproj" />
   <Project Path="Lab.TokensStreamer\Lab.TokensStreamer.csproj" />
   <Project Path="Lab.ToolsAgents/Lab.ToolsAgents.csproj" />
   <Project Path="Lab.WorkflowAgents\Lab.WorkflowAgents.csproj" />

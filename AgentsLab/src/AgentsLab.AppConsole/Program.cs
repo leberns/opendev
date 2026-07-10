@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Contracts.Settings;
 using DataUnderstanding;
 using Lab.MiddlewareAgents;
+using Lab.SkillsAgents;
 using Lab.ToolsAgents;
 using McpAgents;
 using Microsoft.Extensions.DependencyInjection;
@@ -61,6 +62,7 @@ services.AddTransient<IRunnableLab, AskForApproval>();
 services.AddTransient<IRunnableLab, McpSubmitExpenseAgent>();
 services.AddTransient<IRunnableLab, McpServicesAgent>();
 services.AddTransient<IRunnableLab, McpServicesAgency>();
+services.AddTransient<IRunnableLab, SkilledCoderAgent>();
 
 var serviceProvider = services.BuildServiceProvider();
 

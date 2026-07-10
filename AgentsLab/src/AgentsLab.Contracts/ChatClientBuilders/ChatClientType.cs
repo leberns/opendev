@@ -9,4 +9,5 @@ public enum ChatClientType
     OllamaQwenThinking4B = 5,
     OllamaQwenVl4B = 6,
     OllamaQwenVl8B = 7,
+    OllamaQwenCoder30B = 8,
 }

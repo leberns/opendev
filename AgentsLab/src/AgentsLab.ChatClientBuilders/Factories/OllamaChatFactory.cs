@@ -17,7 +17,8 @@ public class OllamaChatFactory(
             or ChatClientType.OllamaLlamaVision
             or ChatClientType.OllamaQwenThinking4B
             or ChatClientType.OllamaQwenVl4B
-            or ChatClientType.OllamaQwenVl8B;
+            or ChatClientType.OllamaQwenVl8B
+            or ChatClientType.OllamaQwenCoder30B;
 
     public IChatClient CreateChatClient(ChatClientType chatClientType)
     {

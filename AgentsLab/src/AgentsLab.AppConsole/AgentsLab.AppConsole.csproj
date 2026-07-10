@@ -27,6 +27,7 @@
     <ProjectReference Include="..\Lab.MultiModal\Lab.MultiModal.csproj" />
     <ProjectReference Include="..\Lab.MultiTurnConversation\Lab.MultiTurnConversation.csproj" />
     <ProjectReference Include="..\Lab.SentimentAnalyser\Lab.SentimentAnalyser.csproj" />
+    <ProjectReference Include="..\Lab.SkillsAgents\Lab.SkillsAgents.csproj" />
     <ProjectReference Include="..\Lab.TokensStreamer\Lab.TokensStreamer.csproj" />
     <ProjectReference Include="..\Lab.ToolsAgents\Lab.ToolsAgents.csproj" />
     <ProjectReference Include="..\Lab.WorkflowAgents\Lab.WorkflowAgents.csproj" />
